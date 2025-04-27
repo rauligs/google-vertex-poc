@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.poc.ai'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Google Cloud and Vertex AI dependencies
+    implementation 'com.google.cloud:google-cloud-aiplatform:3.50.0'
+    implementation 'com.google.auth:google-auth-library-oauth2-http:1.23.0'
+    
+    // HTTP client for API calls
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    
+    // JSON processing
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    // Environment variables
+    implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+    
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    
+    // Testing
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.mockito:mockito-core:5.8.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.8.0'
+    testImplementation 'com.github.tomakehurst:wiremock-jre8-standalone:2.35.1'
+}
+
+test {
+    useJUnitPlatform()
+}
