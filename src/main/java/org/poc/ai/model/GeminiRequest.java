@@ -1,5 +1,9 @@
 package org.poc.ai.model;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +11,10 @@ import java.util.List;
  * Represents a request to the Gemini model
  */
 public class GeminiRequest {
+    @NotEmpty(message = "Contents cannot be empty")
+    @Valid
     private List<Content> contents;
+    
     private GenerationConfig generationConfig;
     private SafetySetting[] safetySettings;
     
@@ -57,7 +64,10 @@ public class GeminiRequest {
      * Represents content in a Gemini request
      */
     public static class Content {
+        @NotEmpty(message = "Parts cannot be empty")
+        @Valid
         private List<Part> parts;
+        
         private String role;
         
         public List<Part> getParts() {
@@ -81,6 +91,7 @@ public class GeminiRequest {
      * Represents a part of content in a Gemini request
      */
     public static class Part {
+        @NotNull(message = "Text cannot be null")
         private String text;
         
         public String getText() {

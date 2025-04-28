@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
 }
 
 group = 'org.poc.ai'
@@ -10,6 +12,10 @@ repositories {
 }
 
 dependencies {
+    // Spring Boot dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    
     // Google Cloud and Vertex AI dependencies
     implementation 'com.google.cloud:google-cloud-aiplatform:3.50.0'
     implementation 'com.google.auth:google-auth-library-oauth2-http:1.23.0'
